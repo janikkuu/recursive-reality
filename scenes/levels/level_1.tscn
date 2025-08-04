@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr2sd2csjntr7"]
+
+[ext_resource type="Script" uid="uid://i8sq1fapx1ek" path="res://scripts/level_1_setup.gd" id="1_sk5k4"]
+[ext_resource type="PackedScene" uid="uid://d2d5aw2j4y3pw" path="res://scenes/objects/LevelExit.tscn" id="2_oc4kc"]
+[ext_resource type="TileSet" uid="uid://ui82trid6f36" path="res://assets/tileset.tres" id="3_s8va5"]
+[ext_resource type="PackedScene" uid="uid://cce63cxen0657" path="res://scenes/player/player.tscn" id="4_dga24"]
+[ext_resource type="Script" uid="uid://76xvknsr7ud8" path="res://scripts/level_manager.gd" id="5_qxy0u"]
+[ext_resource type="PackedScene" uid="uid://d2vrn38ntsjjr" path="res://scenes/ui/hud.tscn" id="6_excbq"]
+
+[node name="Level_1" type="Node2D"]
+script = ExtResource("1_sk5k4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelExit" parent="." instance=ExtResource("2_oc4kc")]
+position = Vector2(1000, 328)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("3_s8va5")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 983065, 1, 0, 917529, 1, 0, 851993, 1, 0, 786457, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 720924, 1, 0, 720925, 1, 0, 720926, 1, 0, 720927, 1, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_dga24")]
+position = Vector2(368, 432)
+
+[node name="LevelManager" type="Node2D" parent="."]
+script = ExtResource("5_qxy0u")
+
+[node name="GhostsContainer" type="Node2D" parent="LevelManager"]
+
+[node name="Hud" parent="." instance=ExtResource("6_excbq")]

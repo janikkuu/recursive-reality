@@ -1,0 +1,14 @@
+CollisionShape2D
+Area2D
+CPUParticles2D
+ColorRect
+StaticBody2D
+Sprite2D
+Label
+VBoxContainer
+Control
+CanvasLayer
+Node2D
+CharacterBody2D
+TileMap
+RayCast2D

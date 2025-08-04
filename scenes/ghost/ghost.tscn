@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdkq08xhosut0"]
+
+[ext_resource type="Script" uid="uid://dn72eiipwo7r8" path="res://scripts/ghost.gd" id="1_durhr"]
+[ext_resource type="Texture2D" uid="uid://cc4dhqm3nruco" path="res://assets/sprites/blue_body_square.png" id="2_lits6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm38u"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8acop"]
+size = Vector2(32, 32)
+
+[node name="Ghost" type="StaticBody2D"]
+script = ExtResource("1_durhr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cm38u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lits6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8acop")

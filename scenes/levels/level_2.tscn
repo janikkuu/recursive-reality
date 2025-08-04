@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://dobxmvu8p6f8r"]
+
+[ext_resource type="Script" uid="uid://i8sq1fapx1ek" path="res://scripts/level_1_setup.gd" id="1_8qukl"]
+[ext_resource type="PackedScene" uid="uid://d2d5aw2j4y3pw" path="res://scenes/objects/LevelExit.tscn" id="2_3p04p"]
+[ext_resource type="TileSet" uid="uid://ui82trid6f36" path="res://assets/tileset.tres" id="3_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://cce63cxen0657" path="res://scenes/player/player.tscn" id="4_nt80m"]
+[ext_resource type="Script" uid="uid://76xvknsr7ud8" path="res://scripts/level_manager.gd" id="5_brxtv"]
+[ext_resource type="PackedScene" uid="uid://d2vrn38ntsjjr" path="res://scenes/ui/hud.tscn" id="6_tv7cl"]
+[ext_resource type="PackedScene" uid="uid://oe5dglolt2tt" path="res://scenes/objects/PressureSwitch.tscn" id="7_r88tb"]
+[ext_resource type="PackedScene" uid="uid://4vwmbwrk3a5u" path="res://scenes/objects/Door.tscn" id="8_1yj8c"]
+
+[node name="Level_2" type="Node2D"]
+script = ExtResource("1_8qukl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelExit" parent="." instance=ExtResource("2_3p04p")]
+position = Vector2(1128, 456)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("3_qsp8v")
+format = 2
+layer_0/tile_data = PackedInt32Array(983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0, 983066, 1, 0, 983067, 1, 0, 983068, 1, 0, 983069, 1, 0, 983070, 1, 0, 983071, 1, 0, 983072, 1, 0, 983073, 1, 0, 983074, 1, 0, 983075, 1, 0, 983044, 1, 0, 786468, 1, 0, 852004, 1, 0, 917540, 1, 0, 983076, 1, 0, 786467, 1, 0, 786466, 1, 0, 786465, 1, 0, 786464, 1, 0, 786463, 1, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_nt80m")]
+position = Vector2(368, 432)
+
+[node name="LevelManager" type="Node2D" parent="."]
+script = ExtResource("5_brxtv")
+
+[node name="GhostsContainer" type="Node2D" parent="LevelManager"]
+
+[node name="Hud" parent="." instance=ExtResource("6_tv7cl")]
+
+[node name="PressureSwitch" parent="." instance=ExtResource("7_r88tb")]
+position = Vector2(464, 472)
+
+[node name="Door" parent="." instance=ExtResource("8_1yj8c")]
+position = Vector2(1008, 447)
+linked_switch_path = NodePath("../PressureSwitch")
